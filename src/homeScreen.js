@@ -17,7 +17,7 @@ const HomeScreen = () => {
       // Faz a requisição da api do adafruit
       const response = await api.toggleLED({ value: `${!stateLED.value}` });
       console.log("Resposta: ", response.data);
-      setStateLED({value: !stateLED.value});
+      setStateLED({ value: !stateLED.value });
     } catch (error) {
       console.log("Erro: ", error.response.data);
     }
@@ -29,14 +29,21 @@ const HomeScreen = () => {
         <Button title="Abrir Câmera" onPress={handleCam} color="blue" />
       </View>
 
-      <Button
-        title={stateLED.value ? "Desligar Led" : "Ligar Led"}
-        onPress={ledToggle}
-        color={stateLED.value ? "red" : "green"}
-      />
+      <View style={{ marginBottom: 20 }}>
+        <Button
+          title={stateLED.value ? "Desligar Led" : "Ligar Led"}
+          onPress={ledToggle}
+          color={stateLED.value ? "red" : "green"}
+        />
+      </View>
 
+      <View style={{ marginBottom: 20 }}>
+        <Button
+          title="Listar Eventos"
+          onPress={() => navigation.navigate("Eventos")}
+        />
+      </View>
     </View>
-
   );
 };
 export default HomeScreen;

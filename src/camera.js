@@ -48,6 +48,7 @@ export default function Cam() {
       try {
         const response = await createEvento(form, data.uri);
         console.log("Evento criado", response.data);
+        alert("Evento criado", response.data);
       } catch (error) {
         console.error("Evento criado", response.data.error);
       }
